@@ -1,8 +1,5 @@
-import random
-import re
 import sys
 import twitter
-from mastodon import Mastodon
 from generate_poems import *
 
 try:
