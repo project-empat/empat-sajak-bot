@@ -9,7 +9,7 @@ def build_models():
     # text_model = json.loads(open('markov_model.json').read())
     text_data = ''
     files = glob.glob(DATA_SOURCE_FOLDER + "*.txt")
-    if not hash_source() != DATA_SOURCE_HASH and not os.path.isfile(MARKOV_MODEL_JSON):
+    if not hash_source() != DATA_SOURCE_HASH or not os.path.isfile(MARKOV_MODEL_JSON):
         print("Read file")
         for file in files:
             with open(file, encoding='utf-8') as corpus:
