@@ -1,12 +1,17 @@
-# adam
-`adam` is a polish poetry generator that uses Markov Chains. Markov chains were generated using polish poems scraped from web (250000 lines of text). This corpus is stored in `poems.txt`.
-You can try `adam` [here](http://bziarkowski.pl/adam/).
-See also [twitter bot](https://twitter.com/wierszeadama).
+# empat sajak bot
+`empat sajak bot` is a Indonesian poetry generator that uses Markov Chains. 
+This bot based on [heroku_ebooks](https://github.com/tommeagher/heroku_ebooks) and [adam](https://github.com/bziarkowski/adam).
+To make it simple, this bot don't gather data by reading tweet, or toots, or scraping web. 
+But from the data that was picked from my personal preference.
+The ability to post to Mastodon is also removed.
+
+See also [twitter bot](https://twitter.com/_empat_sajak).
+
 # Installation
 In terminal.
 ```
-git clone https://github.com/bziarkowski/adam.git
-cd adam
+git clone https://github.com/project-empat/empat-sajak-bot
+cd empat-sajak-bot
 ```
 Install Python requirements.
 ```
@@ -19,10 +24,3 @@ To generate poems run:
 ```
 python generate_poems.py
 ```
-# Run app
-To start `adam` app:
-```
-python app.py
-```
-After this operation the app will be available on port 5000.
-Simply open your browser and type `localhost:5000`

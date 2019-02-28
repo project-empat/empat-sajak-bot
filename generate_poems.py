@@ -1,23 +1,34 @@
 import markovify
 import random
-from local_settings import *
-import glob
+from hash_source import *
+import os.path
+import json
 
 
 def build_models():
     # text_model = json.loads(open('markov_model.json').read())
     text_data = ''
-    files = glob.glob(DATA_SOURCE_FOLDER+"*.txt")
+    files = glob.glob(DATA_SOURCE_FOLDER + "*.txt")
+    if not hash_source() != DATA_SOURCE_HASH and not os.path.isfile(MARKOV_MODEL_JSON):
+        print("Read file")
+        for file in files:
+            with open(file, encoding='utf-8') as corpus:
+                text = corpus.read()
+            text_data += text
 
-    for file in files:
-        with open(file, encoding='utf-8') as corpus:
-            text = corpus.read()
-        text_data += text
-
-    try:
-        text_model = markovify.NewlineText(text_data)
-    except Exception as err:
-        text_model = None
+        try:
+            text_model = markovify.NewlineText(text_data)
+            file = open(MARKOV_MODEL_JSON, "w")
+            file.write(text_model.to_json())
+        except Exception as err:
+            text_model = None
+    else:
+        print("Use generated model")
+        try:
+            text_model = markovify.Text.from_json(json.dumps(json.loads(open(MARKOV_MODEL_JSON).read())))
+        except Exception as err:
+            print(err)
+            text_model = None
 
     return text_model
 
