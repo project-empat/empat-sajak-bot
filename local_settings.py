@@ -10,7 +10,7 @@ MY_CONSUMER_KEY = environ.get('TWITTER_CONSUMER_KEY')  # Your Twitter API Consum
 MY_CONSUMER_SECRET = environ.get('TWITTER_CONSUMER_SECRET')  # Your Consumer Secret Key set in Heroku config
 MY_ACCESS_TOKEN_KEY = environ.get('TWITTER_ACCESS_TOKEN_KEY')  # Your Twitter API Access Token Key set in Heroku config
 MY_ACCESS_TOKEN_SECRET = environ.get('TWITTER_ACCESS_SECRET')  # Your Access Token Secret set in Heroku config
-ODDS = 4  # How often do you want this to run? 1/8 times?
+ODDS = 2  # How often do you want this to run? 1/8 times?
 
 DEBUG = environ.get('BOT_DEBUG', "Y")  # Set this to False to start Tweeting live
 
